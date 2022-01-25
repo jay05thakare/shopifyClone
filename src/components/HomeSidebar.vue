@@ -63,7 +63,7 @@
     <!-- Static sidebar for desktop -->
     <div class="hidden md:flex md:w-52 md:flex-col md:fixed md:inset-y-0">
       <!-- Sidebar component, swap this element with another sidebar if you like -->
-      <div class="flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-gray-100 shadow">
+      <div class="flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-gray-900 shadow">
         <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
           <nav class="mt-10 flex-1 bg-gray-100 space-y-1 md:pr-2 space-y-5">
             <div>
