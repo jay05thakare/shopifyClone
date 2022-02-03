@@ -19,7 +19,7 @@
             <div class="mt-2 grid grid-cols-1 xs:grid-cols-2 gap-0 xs:gap-3 lg:grid-cols-4">
                 <MarketingCard v-for="card in cards" :key="card.name" :name="card.name" :value="card.value" :amount="card.amount" :title="card.title" :position="card.position"/>
             </div>
-            <RecentMarketingTable />   
+            <CampaignTable />   
             <div class="text-xxs mx-auto flex py-6 px-2 xs:px-4">
                 <div><img class="w-4 mt-0.5 mr-3 xs:mr-1" src="@/assets/images/information.svg" alt=""></div> 
                 <div >Learn more about &nbsp;  
@@ -35,8 +35,8 @@
 <script>
 import Button from '../components/Button.vue'
 import MarketingCard from '../components/MarketingCard.vue'
-import RecentMarketingTable from '../components/RecentMarketingTable.vue'
 import CampaignBanner from '../components/CampaignBanner.vue'
+import CampaignTable from '../components/CampaignTable.vue'
 
 const cards = [
   { name: 'Sessions', value: '0', title:'title', position:'top'},
@@ -55,7 +55,7 @@ const marketing =
         components:{
             Button,
             MarketingCard,
-            RecentMarketingTable,
+            CampaignTable,
             CampaignBanner,
         },
   setup() {
