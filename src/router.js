@@ -5,7 +5,11 @@ import AllOrders from './views/AllOrders.vue'
 import Drafts from './views/Drafts.vue'
 import AbandonedCheckouts from './views/AbandonedCheckouts.vue'
 import Products from './views/Products.vue'
+import Marketing from './views/MarketingOverview.vue'
+import MarketingCampaign from './views/MarketingCampaign.vue'
+
 import World from './views/World.vue'
+import newside from './components/newside.vue'
 
 const routes = [
     {
@@ -34,9 +38,24 @@ const routes = [
         path: '/products'
     },
     {
+        name: 'Marketing',
+        component: Marketing,
+        path: '/marketing'
+    },
+    {
+        name: 'MarketingCampaign',
+        component: MarketingCampaign,
+        path: '/marketingCampaign'
+    },
+    {
         name: 'World',
         component: World,
         path: '/world'
+    },
+    {
+        name: 'newside',
+        component: newside,
+        path: '/newside'
     }
 ]
 

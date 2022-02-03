@@ -1,4 +1,5 @@
-const colors = require('tailwindcss/colors')
+const colors = require('tailwindcss/colors');
+const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
@@ -6,6 +7,7 @@ module.exports = {
     extend: {
       colors: {
           rose: colors.rose,
+          cyan: colors.cyan,
           'regal-blue': '#243c5a',
           'primary': '#008060',
           'secondary': '#007B5C',
@@ -21,10 +23,20 @@ module.exports = {
           'xxs': '.7rem',
         },
     },
+    screens: {
+      // adding xs to the rest
+      xs: "475px",
+      // if you did not add this, you would have only "xs"
+      ...defaultTheme.screens,
+    },
   },
   variants: {
     extend: {},
   },
   plugins: [
+    require('@themesberg/flowbite/plugin'),
   ],
+  content: [
+    "./node_modules/@themesberg/flowbite/**/*.js"
+]
 }

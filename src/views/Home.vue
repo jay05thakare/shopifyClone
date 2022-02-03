@@ -8,7 +8,7 @@
               <p>Give your business time to grow. Get Shopify monthly or select a one-year, two-year, or three-year plan for savings of up to 25%.</p>
               <Button Button="Select a plan" />
               <div>
-                  <button class="w-4 h-4 z-10"><img src="@/assets/images/close.svg" alt=""></button>
+                  <button class="w-4 h-4 z-10 text"><img src="@/assets/images/close.svg" alt=""></button>
               </div>
             </div>
 
