@@ -54,8 +54,8 @@ const routes = [
         path: '/world'
     },
     {
-        name: 'newside',
-        component: newside,
+        name: 'Newside',
+        component: Newside,
         path: '/newside'
     },
     {

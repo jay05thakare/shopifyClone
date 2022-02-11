@@ -110,6 +110,7 @@ const orders = [
 ]
 
 export default {
+  name:'Sample',
   setup() {
     return {
       orders,
