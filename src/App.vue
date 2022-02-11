@@ -1,7 +1,7 @@
 <template>
   <HomeHeader />
   <HomeSidebar />
-  <div class="bg-gray-100 h-full"><router-view></router-view></div>
+  <div class="bg-gray-100 min-h-screen"><router-view></router-view></div>
 </template>
 
 <script>

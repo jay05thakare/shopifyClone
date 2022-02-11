@@ -9,7 +9,8 @@ import Marketing from './views/MarketingOverview.vue'
 import MarketingCampaign from './views/MarketingCampaign.vue'
 
 import World from './views/World.vue'
-import newside from './components/newside.vue'
+import newside from './components/Newside.vue'
+import sample from './components/Sample.vue'
 
 const routes = [
     {
@@ -56,7 +57,12 @@ const routes = [
         name: 'newside',
         component: newside,
         path: '/newside'
-    }
+    },
+    {
+        name: 'sample',
+        component: sample,
+        path: '/sample'
+    },
 ]
 
 const router = createRouter({

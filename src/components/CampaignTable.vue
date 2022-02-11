@@ -5,7 +5,7 @@
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
         <div class="shadow  border-b border-gray-200 sm:rounded-lg divide-y divide-gray-200">
           <h2 class=" font-semibold text-base text-dark-text min-w-full bg-white py-3 px-4">Campaign</h2>
-          <Newside />
+          <CampaignPageSearchAssets />
           <table class=" min-w-full divide-y divide-gray-200">
             <thead class="text-left text-xs text-dark-text tracking-wider bg-white">
               <tr>
@@ -97,7 +97,7 @@
 
 <script>
 import { Menu, MenuButton, MenuItem, MenuItems,} from '@headlessui/vue'
-import Newside from './Newside'
+import CampaignPageSearchAssets from './CampaignPageSearchAssets'
 
 const recentMarketing = [
   {
@@ -134,7 +134,8 @@ export default {
   MenuButton, 
   MenuItem, 
   MenuItems,
-  Newside},
+  CampaignPageSearchAssets,
+  },
   setup() {
     return {
       recentMarketing,
