@@ -9,7 +9,7 @@ import Marketing from './views/MarketingOverview.vue'
 import MarketingCampaign from './views/MarketingCampaign.vue'
 
 import World from './views/World.vue'
-import Newside from './components/Newside.vue'
+// import Newside from '.components/Newside.vue'
 import sample from './components/Sample.vue'
 
 const routes = [
@@ -53,11 +53,11 @@ const routes = [
         component: World,
         path: '/world'
     },
-    {
-        name: 'Newside',
-        component: Newside,
-        path: '/newside'
-    },
+    // {
+    //     name: 'Newside',
+    //     component: Newside,
+    //     path: '/newside'
+    // },
     {
         name: 'sample',
         component: sample,
