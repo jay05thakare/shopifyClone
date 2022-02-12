@@ -228,7 +228,7 @@ const navigation = [
     icon: InboxIcon,
     current: false,
     children:[
-      {name:'Reports', link:'#'},
+      {name:'Reports', link:'/AnalyticsReport'},
       // {name:'Live View', link:'#'},
     ]
     },
