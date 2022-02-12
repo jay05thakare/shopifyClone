@@ -83,7 +83,7 @@ const orders = [
   {
     id: '#100',
     date:'Wednesday at 2.22pm',
-    customer: 'John Doe jdfvbhs dcibsnd',
+    customer: 'John Doe jr John Doe',
     total: '100.00',
     payment:'Paid',
     fulfillment:'Unfulfilled',

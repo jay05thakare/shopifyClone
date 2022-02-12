@@ -6,7 +6,7 @@
                 <h1 class="text-lg font-semibold text-dark-text">Orders</h1>
                 <button class=" text-sm font-medium text-dark-text">Export</button>
             </div>
-          <div class=" mx-auto px-4 sm:px-6 md:px-8 space-y-8 flex flex-col w-full">
+          <div class=" mx-auto px-4 sm:px-6 md:px-8 space-y-5 flex flex-col w-full">
             <!-- Replace with your content -->
             <AllOrdersCard />
             <AllOrdersTableCard />

@@ -7,6 +7,7 @@ import AbandonedCheckouts from './views/AbandonedCheckouts.vue'
 import Products from './views/Products.vue'
 import Marketing from './views/MarketingOverview.vue'
 import MarketingCampaign from './views/MarketingCampaign.vue'
+import AnalyticsDashboard from './views/AnalyticsDashboard.vue'
 
 import World from './views/World.vue'
 // import Newside from '.components/Newside.vue'
@@ -47,6 +48,11 @@ const routes = [
         name: 'MarketingCampaign',
         component: MarketingCampaign,
         path: '/marketingCampaign'
+    },
+    {
+        name: 'AnalyticsDashboard',
+        component: AnalyticsDashboard,
+        path: '/AnalyticsDashboard'
     },
     {
         name: 'World',

@@ -181,7 +181,7 @@ import {
   ChartBarIcon,
   FolderIcon,
   HomeIcon,
-  // InboxIcon,
+  InboxIcon,
   MenuIcon,
   UsersIcon,
   XIcon,
@@ -222,17 +222,16 @@ const navigation = [
   //   icon: CalendarIcon,
   //   current: false,
   //   },
-  // {
-  //   name: 'Analytics',
-  //   link: '#',
-  //   icon: InboxIcon,
-  //   current: false,
-  //   children:[
-  //     {name:'Dashboards', link:'#'},
-  //     {name:'Reports', link:'#'},
-  //     {name:'Live View', link:'#'},
-  //   ]
-  //   },
+  {
+    name: 'Analytics',
+    link: '/AnalyticsDashboard',
+    icon: InboxIcon,
+    current: false,
+    children:[
+      {name:'Reports', link:'#'},
+      // {name:'Live View', link:'#'},
+    ]
+    },
   {
     name: 'Marketing',
     link: '/marketing',
