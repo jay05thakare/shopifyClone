@@ -3,7 +3,7 @@
     <main class="flex-1">
       <div class="py-6 space-y-4">
         <div class="px-4 sm:px-6 md:px-8 flex flex-col space-y-6">
-          <h1 class="text-lg font-semibold text-dark-text">Orders</h1>
+          <h1 class="text-lg font-semibold text-dark-text">Analytics</h1>
           <div class="flex items-center space-x-2">
             <button
               type="button"
