@@ -236,11 +236,11 @@
                   </div>
                   <div class="text-right space-x-2">
                     <span class="text-xs text-light-text align-middle">
-                      <span class="inline-block h-3 w-3 rounded-sm bg-gray-400 mr-1"></span>
+                      <span :class="[graphStart = 'First-time' ? 'bg-teal-500':'bg-gray-400', 'inline-block h-3 w-3 rounded-sm  mr-1']"></span>
                       {{card.graphStart}}
                     </span>
                     <span class="text-xs text-light-text align-middle">
-                      <span class="inline-block h-3 w-3 rounded-sm bg-teal-500 mr-1"></span>
+                      <span :class="[graphStart = 'Returning' ? 'bg-teal-900':'bg-teal-500', 'inline-block h-3 w-3 rounded-sm  mr-1']"></span>
                       {{card.graphEnd}}
                     </span>
                   </div>
