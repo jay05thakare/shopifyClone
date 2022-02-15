@@ -3,9 +3,11 @@
         <main class="flex-1">
         <div class="md:py-5 space-y-4">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 space-y-4">
-                <div class="flex justify-between relative">
+                <div class="flex justify-between relative xs:static">
                   <h1 class="pt-8 xs:pt-0 text-xl font-semibold text-dark-text whitespace-nowrap">Reports</h1>
-                  <div class="xs:static absolute top-0 right-0"><Button Button="Create custom report" class="" /></div>
+                  <div class="xs:static absolute top-0 right-0">
+                    <CreateReportButton />
+                  </div>
                 </div>
                 <div class="w-full">
                     <label for="search" class="sr-only text-xs">Search</label>
@@ -115,7 +117,7 @@
 <script>
 import {ref} from 'vue'
 import {SearchIcon,ChevronDownIcon} from '@heroicons/vue/outline'
-import Button from '../components/Button.vue'
+import CreateReportButton from '../components/CreateReportButton.vue'
 
 const cardsCol1 = [
   {
@@ -409,7 +411,7 @@ const cardsCol2 = [
     export default {
         name:'AnalyticsReport',
         components:{
-            Button,
+            CreateReportButton,
             SearchIcon,
             ChevronDownIcon
         },

@@ -7,7 +7,7 @@
             </div>
 
 
-                <div class="flex max-h-80 overflow-hidden">
+                <div class="flex max-h-80 h-80 overflow-hidden">
                     <!-- Main content -->
                     <div class="flex-1 flex items-stretch overflow-y-auto">
                         <main class="flex-1">

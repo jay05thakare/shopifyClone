@@ -9,6 +9,7 @@ import Marketing from './views/MarketingOverview.vue'
 import MarketingCampaign from './views/MarketingCampaign.vue'
 import AnalyticsDashboard from './views/AnalyticsDashboard.vue'
 import AnalyticsReport from './views/AnalyticsReport.vue'
+import OverTime from './views/OverTime.vue'
 
 import World from './views/World.vue'
 // import Newside from '.components/Newside.vue'
@@ -59,6 +60,11 @@ const routes = [
         name: 'AnalyticsReport',
         component: AnalyticsReport,
         path: '/AnalyticsReport'
+    },
+    {
+        name: 'OverTime',
+        component: OverTime,
+        path: '/OverTime'
     },
     {
         name: 'World',

@@ -25,7 +25,7 @@
               <div v-for="card in cardsCol1" :key="card.name" class=" w-full bg-white shadow border border-gray-200 p-5 rounded-lg space-y-6">
                 <div class="flex justify-between">
                   <h2
-                    class=" text-base text-dark-text font-medium border-b-2 border-dotted border-gray-300 pr-4 box-border" >
+                    class=" text-base text-dark-text font-medium pr-4 box-border" >
                     {{card.name}}
                   </h2>
                   <a :href="card.href" class="text-sm text-blue-500 whitespace-nowrap">View report</a>
@@ -112,7 +112,7 @@
               <div v-for="card in cardsCol2" :key="card.name" class=" w-full bg-white shadow border border-gray-200 p-5 rounded-lg space-y-6">
                 <div class="flex justify-between">
                   <h2
-                    class=" text-base text-dark-text font-medium border-b-2 border-dotted border-gray-300 pr-4 box-border" >
+                    class=" text-base text-dark-text font-medium pr-4 box-border" >
                     {{card.name}}
                   </h2>
                   <a :href="card.href" class="text-sm text-blue-500 whitespace-nowrap">View report</a>
@@ -199,7 +199,7 @@
               <div v-for="card in cardsCol3" :key="card.name" class=" w-full bg-white shadow border border-gray-200 p-5 rounded-lg space-y-6">
                 <div class="flex justify-between">
                   <h2
-                    class=" text-base text-dark-text font-medium border-b-2 border-dotted border-gray-300 pr-4 box-border" >
+                    class=" text-base text-dark-text font-medium pr-4 box-border" >
                     {{card.name}}
                   </h2>
                   <a :href="card.href" class="text-sm text-blue-500 whitespace-nowrap">View report</a>
@@ -295,7 +295,7 @@ import { CalendarIcon } from "@heroicons/vue/outline";
 const cardsCol1 = [
   {
     name: "Total sales",
-    href: "#",
+    href: "/OverTime",
     contentStatus: true,
     visitorStatus: false,
     graphStatus: true,
@@ -330,7 +330,7 @@ const cardsCol1 = [
   
   {
     name: "Online store conversion rate",
-    href: "#",
+    href: "/OverTime",
     contentStatus: true,
     visitorStatus: false,
     graphStatus: false,
@@ -365,7 +365,7 @@ const cardsCol1 = [
 
   {
     name: "Top products by units sold",
-    href: "#",
+    href: "/OverTime",
     contentStatus: false,
     visitorStatus: false,
     graphStatus: false,
@@ -400,7 +400,7 @@ const cardsCol1 = [
 
   {
     name: "Online store sessions by traffic source",
-    href: "#",
+    href: "/OverTime",
     contentStatus: false,
     visitorStatus: false,
     graphStatus: false,
@@ -435,7 +435,7 @@ const cardsCol1 = [
 
   {
     name: "Sales by social source",
-    href: "#",
+    href: "/OverTime",
     contentStatus: false,
     visitorStatus: false,
     graphStatus: false,
@@ -470,7 +470,7 @@ const cardsCol1 = [
 
   {
     name: "Top referres by sessions",
-    href: "#",
+    href: "/OverTime",
     contentStatus: false,
     visitorStatus: false,
     graphStatus: false,
@@ -507,7 +507,7 @@ const cardsCol1 = [
 const cardsCol2 = [
   {
     name: "Online store sessions",
-    href: "#",
+    href: "/OverTime",
     contentStatus: true,
     visitorStatus: true,
     graphStatus: true,
@@ -542,7 +542,7 @@ const cardsCol2 = [
   
   {
     name: "Average order value",
-    href: "#",
+    href: "/OverTime",
     contentStatus: true,
     visitorStatus: false,
     graphStatus: false,
@@ -577,7 +577,7 @@ const cardsCol2 = [
 
   {
     name: "Online store sessions by location",
-    href: "#",
+    href: "/OverTime",
     contentStatus: false,
     visitorStatus: false,
     graphStatus: false,
@@ -612,7 +612,7 @@ const cardsCol2 = [
 
   {
     name: "Sales by traffic source",
-    href: "#",
+    href: "/OverTime",
     contentStatus: false,
     visitorStatus: false,
     graphStatus: false,
@@ -647,7 +647,7 @@ const cardsCol2 = [
 
   {
     name: "Top landing pages by sessions",
-    href: "#",
+    href: "/OverTime",
     contentStatus: false,
     visitorStatus: false,
     graphStatus: false,
@@ -685,7 +685,7 @@ const cardsCol2 = [
 const cardsCol3 = [
   {
     name: "Returning customer rate",
-    href: "#",
+    href: "/OverTime",
     contentStatus: true,
     visitorStatus: false,
     graphStatus: true,
@@ -720,7 +720,7 @@ const cardsCol3 = [
   
   {
     name: "Total orders",
-    href: "#",
+    href: "/OverTime",
     contentStatus: true,
     visitorStatus: false,
     graphStatus: false,
@@ -755,7 +755,7 @@ const cardsCol3 = [
 
   {
     name: "Online store sessions by device type",
-    href: "#",
+    href: "/OverTime",
     contentStatus: false,
     visitorStatus: false,
     graphStatus: false,
@@ -790,7 +790,7 @@ const cardsCol3 = [
 
   {
     name: "Online store sessions by social source",
-    href: "#",
+    href: "/OverTime",
     contentStatus: false,
     visitorStatus: false,
     graphStatus: false,
@@ -825,7 +825,7 @@ const cardsCol3 = [
 
   {
     name: "Sales attributed to marketing",
-    href: "#",
+    href: "/OverTime",
     contentStatus: true,
     visitorStatus: false,
     graphStatus: true,

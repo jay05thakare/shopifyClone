@@ -79,6 +79,7 @@
         </div>
       </Dialog>
     </TransitionRoot>
+    
 
     <!-- Static sidebar for desktop -->
     <div class="hidden md:flex md:w-52 md:flex-col md:fixed md:inset-y-0">
