@@ -1,14 +1,12 @@
 <template>
-    <div>
-        <div>world world</div>
-    </div>
+  <div>
+    <div>world world</div>
+  </div>
 </template>
 
 <script>
-
 export default {
-    name: 'World',
-    components: {
-    }
-}
+  name: "World",
+  components: {},
+};
 </script>

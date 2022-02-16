@@ -1,14 +1,15 @@
 <template>
-  <div class="md:pl-52 flex flex-col flex-1">
+  <div class="flex flex-1 flex-col md:pl-52">
     <main class="flex-1">
-      <div class="py-6 space-y-4">
-        <div class="px-4 sm:px-6 md:px-8 flex flex-col space-y-6">
+      <div class="space-y-4 py-6">
+        <div class="flex flex-col space-y-6 px-4 sm:px-6 md:px-8">
           <h1 class="text-lg font-semibold text-dark-text">Analytics</h1>
           <div class="flex items-center space-x-2">
             <button
               type="button"
-              class=" inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded text-dark-text bg-white hover:bg-gray-50 max-w-max " >
-              <span><CalendarIcon class="w-5 h-5 mr-1 text-gray-600" /></span>
+              class="inline-flex max-w-max items-center rounded border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-dark-text shadow-sm hover:bg-gray-50"
+            >
+              <span><CalendarIcon class="mr-1 h-5 w-5 text-gray-600" /></span>
               Today
             </button>
             <span class="text-sm text-light-text"
@@ -16,267 +17,448 @@
             >
           </div>
         </div>
-        <div class="mx-auto px-4 sm:px-6 md:px-8 space-y-5 flex flex-col w-full"
+        <div
+          class="mx-auto flex w-full flex-col space-y-5 px-4 sm:px-6 md:px-8"
         >
           <!-- Replace with your content -->
-          <div class=" flex flex-col xl:flex-row space-y-4 xl:space-y-0 xl:space-x-4 items-start w-full " >
+          <div
+            class="flex w-full flex-col items-start space-y-4 xl:flex-row xl:space-y-0 xl:space-x-4"
+          >
             <!-- column 1 -->
-            <div class="w-full h-auto space-y-4">
-              <div v-for="card in cardsCol1" :key="card.name" class=" w-full bg-white shadow border border-gray-200 p-5 rounded-lg space-y-6">
+            <div class="h-auto w-full space-y-4">
+              <div
+                v-for="card in cardsCol1"
+                :key="card.name"
+                class="w-full space-y-6 rounded-lg border border-gray-200 bg-white p-5 shadow"
+              >
                 <div class="flex justify-between">
                   <h2
-                    class=" text-base text-dark-text font-medium pr-4 box-border" >
-                    {{card.name}}
+                    class="box-border pr-4 text-base font-medium text-dark-text"
+                  >
+                    {{ card.name }}
                   </h2>
-                  <a :href="card.href" class="text-sm text-blue-500 whitespace-nowrap">View report</a>
+                  <a
+                    :href="card.href"
+                    class="whitespace-nowrap text-sm text-blue-500"
+                    >View report</a
+                  >
                 </div>
-                <div :class="[card.contentStatus ? 'block' : 'hidden','flex justify-between -mt-8']">
-                  <h2 class="text-3xl text-dark-text font-medium">{{card.value}}</h2>
-                  <button class="text-2xl">{{card.aria}}</button>
+                <div
+                  :class="[
+                    card.contentStatus ? 'block' : 'hidden',
+                    '-mt-8 flex justify-between',
+                  ]"
+                >
+                  <h2 class="text-3xl font-medium text-dark-text">
+                    {{ card.value }}
+                  </h2>
+                  <button class="text-2xl">{{ card.aria }}</button>
                 </div>
-                <div :class="[card.visitorStatus && card.contentStatus ? 'block': 'hidden', 'flex flex-col']">
+                <div
+                  :class="[
+                    card.visitorStatus && card.contentStatus
+                      ? 'block'
+                      : 'hidden',
+                    'flex flex-col',
+                  ]"
+                >
                   <table class="w-full space-y-2">
                     <tbody class="w-full">
-                      <tr class="w-full text-sm hidden xl:block">
+                      <tr class="hidden w-full text-sm xl:block">
                         <td class="w-11/12">Visitors</td>
-                        <td class="w-1/12">{{card.visitors}}</td>
+                        <td class="w-1/12">{{ card.visitors }}</td>
                         <td>-</td>
                       </tr>
-                      <tr class="w-full xl:hidden block">
+                      <tr class="block w-full xl:hidden">
                         <td>Visitor</td>
                       </tr>
-                      <tr class="w-full xl:hidden block">
-                        <td class="w-full">{{card.visitors}}</td>
-                        <td>{{card.aria}}</td>
+                      <tr class="block w-full xl:hidden">
+                        <td class="w-full">{{ card.visitors }}</td>
+                        <td>{{ card.aria }}</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
-                <div :class="[card.graphStatus && card.contentStatus ? 'block': 'hidden', 'space-y-2']">
+                <div
+                  :class="[
+                    card.graphStatus && card.contentStatus ? 'block' : 'hidden',
+                    'space-y-2',
+                  ]"
+                >
                   <p
-                    class=" max-w-max uppercase text-xs font-medium border-b-2 border-dotted border-gray-300 " >
-                    {{card.overTime}} over time
+                    class="max-w-max border-b-2 border-dotted border-gray-300 text-xs font-medium uppercase"
+                  >
+                    {{ card.overTime }} over time
                   </p>
-                  <div class="bg-gray-100 rounded h-52 text-gray-600 text-sm">
+                  <div class="h-52 rounded bg-gray-100 text-sm text-gray-600">
                     graph*
                   </div>
-                  <div class="text-right space-x-2">
-                    <span class="text-xs text-light-text align-middle">
-                      <span class="inline-block h-3 w-3 rounded-sm bg-gray-400 mr-1"></span>
-                      {{card.graphStart}}
+                  <div class="space-x-2 text-right">
+                    <span class="align-middle text-xs text-light-text">
+                      <span
+                        class="mr-1 inline-block h-3 w-3 rounded-sm bg-gray-400"
+                      ></span>
+                      {{ card.graphStart }}
                     </span>
-                    <span class="text-xs text-light-text align-middle">
-                      <span class="inline-block h-3 w-3 rounded-sm bg-teal-500 mr-1"></span>
-                      {{card.graphEnd}}
+                    <span class="align-middle text-xs text-light-text">
+                      <span
+                        class="mr-1 inline-block h-3 w-3 rounded-sm bg-teal-500"
+                      ></span>
+                      {{ card.graphEnd }}
                     </span>
                   </div>
                 </div>
-                <div :class="[card.conversionStatus && card.contentStatus ? 'block': 'hidden']">
-                  <p class="max-w-max uppercase text-dark-text text-xs font-medium">
+                <div
+                  :class="[
+                    card.conversionStatus && card.contentStatus
+                      ? 'block'
+                      : 'hidden',
+                  ]"
+                >
+                  <p
+                    class="max-w-max text-xs font-medium uppercase text-dark-text"
+                  >
                     conversion funnel
                   </p>
-                  <table v-for="conversion in card.conversions" :key="conversion.name" class="w-full text-sm text-dark-text">
+                  <table
+                    v-for="conversion in card.conversions"
+                    :key="conversion.name"
+                    class="w-full text-sm text-dark-text"
+                  >
                     <tbody class="w-full">
-                      <tr class="w-full hidden md:table-row">
+                      <tr class="hidden w-full md:table-row">
                         <td class="pt-2">
-                            <p>{{conversion.name}}</p>
-                            <p class="text-light-text"><span>{{conversion.sessions}} sessions</span></p>
+                          <p>{{ conversion.name }}</p>
+                          <p class="text-light-text">
+                            <span>{{ conversion.sessions }} sessions</span>
+                          </p>
                         </td>
-                        <td class="text-right">{{conversion.percent}}</td>
+                        <td class="text-right">{{ conversion.percent }}</td>
                         <td>
                           <div class="text-right">
-                            <span aria-hidden="true">{{conversion.aria}}</span>
+                            <span aria-hidden="true">{{
+                              conversion.aria
+                            }}</span>
                           </div>
                         </td>
                       </tr>
-                      <tr class="w-full md:hidden table-row">
+                      <tr class="table-row w-full md:hidden">
                         <td>
-                            <p>{{conversion.name}}</p>
-                            <p class="text-light-text"><span>{{conversion.sessions}} sessions</span></p>
+                          <p>{{ conversion.name }}</p>
+                          <p class="text-light-text">
+                            <span>{{ conversion.sessions }} sessions</span>
+                          </p>
                         </td>
                       </tr>
-                      <tr class="md:hidden table-row">
-                        <td>{{conversion.percent}}</td>
-                        <td class="text-right">{{conversion.aria}}</td>
+                      <tr class="table-row md:hidden">
+                        <td>{{ conversion.percent }}</td>
+                        <td class="text-right">{{ conversion.aria }}</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
-                <div :class="[card.contentStatus ? 'hidden': 'block', 'text-sm text-light-text p-4']">
+                <div
+                  :class="[
+                    card.contentStatus ? 'hidden' : 'block',
+                    'p-4 text-sm text-light-text',
+                  ]"
+                >
                   <span>There were no sessions in this date range.</span>
                 </div>
               </div>
             </div>
             <!-- column 2 -->
-            <div class="w-full h-auto space-y-4">
-              <div v-for="card in cardsCol2" :key="card.name" class=" w-full bg-white shadow border border-gray-200 p-5 rounded-lg space-y-6">
+            <div class="h-auto w-full space-y-4">
+              <div
+                v-for="card in cardsCol2"
+                :key="card.name"
+                class="w-full space-y-6 rounded-lg border border-gray-200 bg-white p-5 shadow"
+              >
                 <div class="flex justify-between">
                   <h2
-                    class=" text-base text-dark-text font-medium pr-4 box-border" >
-                    {{card.name}}
+                    class="box-border pr-4 text-base font-medium text-dark-text"
+                  >
+                    {{ card.name }}
                   </h2>
-                  <a :href="card.href" class="text-sm text-blue-500 whitespace-nowrap">View report</a>
+                  <a
+                    :href="card.href"
+                    class="whitespace-nowrap text-sm text-blue-500"
+                    >View report</a
+                  >
                 </div>
-                <div :class="[card.contentStatus ? 'block' : 'hidden','flex justify-between -mt-8']">
-                  <h2 class="text-3xl text-dark-text font-medium">{{card.value}}</h2>
-                  <button class="text-2xl">{{card.aria}}</button>
+                <div
+                  :class="[
+                    card.contentStatus ? 'block' : 'hidden',
+                    '-mt-8 flex justify-between',
+                  ]"
+                >
+                  <h2 class="text-3xl font-medium text-dark-text">
+                    {{ card.value }}
+                  </h2>
+                  <button class="text-2xl">{{ card.aria }}</button>
                 </div>
-                <div :class="[card.visitorStatus && card.contentStatus ? 'block': 'hidden', 'flex flex-col']">
+                <div
+                  :class="[
+                    card.visitorStatus && card.contentStatus
+                      ? 'block'
+                      : 'hidden',
+                    'flex flex-col',
+                  ]"
+                >
                   <table class="w-full space-y-2">
                     <tbody class="w-full">
-                      <tr class="w-full text-sm hidden xl:block">
+                      <tr class="hidden w-full text-sm xl:block">
                         <td class="w-11/12">Visitors</td>
-                        <td class="w-1/12">{{card.visitors}}</td>
+                        <td class="w-1/12">{{ card.visitors }}</td>
                         <td>-</td>
                       </tr>
-                      <tr class="w-full xl:hidden block">
+                      <tr class="block w-full xl:hidden">
                         <td>Visitor</td>
                       </tr>
-                      <tr class="w-full xl:hidden block">
-                        <td class="w-full">{{card.visitors}}</td>
-                        <td>{{card.aria}}</td>
+                      <tr class="block w-full xl:hidden">
+                        <td class="w-full">{{ card.visitors }}</td>
+                        <td>{{ card.aria }}</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
-                <div :class="[card.graphStatus && card.contentStatus ? 'block': 'hidden', 'space-y-2']">
+                <div
+                  :class="[
+                    card.graphStatus && card.contentStatus ? 'block' : 'hidden',
+                    'space-y-2',
+                  ]"
+                >
                   <p
-                    class=" max-w-max uppercase text-xs font-medium border-b-2 border-dotted border-gray-300 " >
-                    {{card.overTime}} over time
+                    class="max-w-max border-b-2 border-dotted border-gray-300 text-xs font-medium uppercase"
+                  >
+                    {{ card.overTime }} over time
                   </p>
-                  <div class="bg-gray-100 rounded h-52 text-gray-600 text-sm">
+                  <div class="h-52 rounded bg-gray-100 text-sm text-gray-600">
                     graph*
                   </div>
-                  <div class="text-right space-x-2">
-                    <span class="text-xs text-light-text align-middle">
-                      <span class="inline-block h-3 w-3 rounded-sm bg-gray-400 mr-1"></span>
-                      {{card.graphStart}}
+                  <div class="space-x-2 text-right">
+                    <span class="align-middle text-xs text-light-text">
+                      <span
+                        class="mr-1 inline-block h-3 w-3 rounded-sm bg-gray-400"
+                      ></span>
+                      {{ card.graphStart }}
                     </span>
-                    <span class="text-xs text-light-text align-middle">
-                      <span class="inline-block h-3 w-3 rounded-sm bg-teal-500 mr-1"></span>
-                      {{card.graphEnd}}
+                    <span class="align-middle text-xs text-light-text">
+                      <span
+                        class="mr-1 inline-block h-3 w-3 rounded-sm bg-teal-500"
+                      ></span>
+                      {{ card.graphEnd }}
                     </span>
                   </div>
                 </div>
-                <div :class="[card.conversionStatus && card.contentStatus ? 'block': 'hidden']">
-                  <p class="max-w-max uppercase text-dark-text text-xs font-medium">
+                <div
+                  :class="[
+                    card.conversionStatus && card.contentStatus
+                      ? 'block'
+                      : 'hidden',
+                  ]"
+                >
+                  <p
+                    class="max-w-max text-xs font-medium uppercase text-dark-text"
+                  >
                     conversion funnel
                   </p>
-                  <table v-for="conversion in card.conversions" :key="conversion.name" class="w-full text-sm text-dark-text">
+                  <table
+                    v-for="conversion in card.conversions"
+                    :key="conversion.name"
+                    class="w-full text-sm text-dark-text"
+                  >
                     <tbody class="w-full">
-                      <tr class="w-full hidden md:table-row">
+                      <tr class="hidden w-full md:table-row">
                         <td class="pt-2">
-                            <p>{{conversion.name}}</p>
-                            <p class="text-light-text"><span>{{conversion.sessions}} sessions</span></p>
+                          <p>{{ conversion.name }}</p>
+                          <p class="text-light-text">
+                            <span>{{ conversion.sessions }} sessions</span>
+                          </p>
                         </td>
-                        <td class="text-right">{{conversion.percent}}</td>
+                        <td class="text-right">{{ conversion.percent }}</td>
                         <td>
                           <div class="text-right">
-                            <span aria-hidden="true">{{conversion.aria}}</span>
+                            <span aria-hidden="true">{{
+                              conversion.aria
+                            }}</span>
                           </div>
                         </td>
                       </tr>
-                      <tr class="w-full md:hidden table-row">
+                      <tr class="table-row w-full md:hidden">
                         <td>
-                            <p>{{conversion.name}}</p>
-                            <p class="text-light-text"><span>{{conversion.sessions}} sessions</span></p>
+                          <p>{{ conversion.name }}</p>
+                          <p class="text-light-text">
+                            <span>{{ conversion.sessions }} sessions</span>
+                          </p>
                         </td>
                       </tr>
-                      <tr class="md:hidden table-row">
-                        <td>{{conversion.percent}}</td>
-                        <td class="text-right">{{conversion.aria}}</td>
+                      <tr class="table-row md:hidden">
+                        <td>{{ conversion.percent }}</td>
+                        <td class="text-right">{{ conversion.aria }}</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
-                <div :class="[card.contentStatus ? 'hidden': 'block', 'text-sm text-light-text p-4']">
+                <div
+                  :class="[
+                    card.contentStatus ? 'hidden' : 'block',
+                    'p-4 text-sm text-light-text',
+                  ]"
+                >
                   <span>There were no sessions in this date range.</span>
                 </div>
               </div>
             </div>
             <!-- column 3 -->
-            <div class="w-full h-auto space-y-4">
-              <div v-for="card in cardsCol3" :key="card.name" class=" w-full bg-white shadow border border-gray-200 p-5 rounded-lg space-y-6">
+            <div class="h-auto w-full space-y-4">
+              <div
+                v-for="card in cardsCol3"
+                :key="card.name"
+                class="w-full space-y-6 rounded-lg border border-gray-200 bg-white p-5 shadow"
+              >
                 <div class="flex justify-between">
                   <h2
-                    class=" text-base text-dark-text font-medium pr-4 box-border" >
-                    {{card.name}}
+                    class="box-border pr-4 text-base font-medium text-dark-text"
+                  >
+                    {{ card.name }}
                   </h2>
-                  <a :href="card.href" class="text-sm text-blue-500 whitespace-nowrap">View report</a>
+                  <a
+                    :href="card.href"
+                    class="whitespace-nowrap text-sm text-blue-500"
+                    >View report</a
+                  >
                 </div>
-                <div :class="[card.contentStatus ? 'block' : 'hidden','flex justify-between -mt-8']">
-                  <h2 class="text-3xl text-dark-text font-medium">{{card.value}}</h2>
-                  <button class="text-2xl">{{card.aria}}</button>
+                <div
+                  :class="[
+                    card.contentStatus ? 'block' : 'hidden',
+                    '-mt-8 flex justify-between',
+                  ]"
+                >
+                  <h2 class="text-3xl font-medium text-dark-text">
+                    {{ card.value }}
+                  </h2>
+                  <button class="text-2xl">{{ card.aria }}</button>
                 </div>
-                <div :class="[card.visitorStatus && card.contentStatus ? 'block': 'hidden', 'flex flex-col']">
+                <div
+                  :class="[
+                    card.visitorStatus && card.contentStatus
+                      ? 'block'
+                      : 'hidden',
+                    'flex flex-col',
+                  ]"
+                >
                   <table class="w-full space-y-2">
                     <tbody class="w-full">
-                      <tr class="w-full text-sm hidden xl:block">
+                      <tr class="hidden w-full text-sm xl:block">
                         <td class="w-11/12">Visitors</td>
-                        <td class="w-1/12">{{card.visitors}}</td>
+                        <td class="w-1/12">{{ card.visitors }}</td>
                         <td>-</td>
                       </tr>
-                      <tr class="w-full xl:hidden block">
+                      <tr class="block w-full xl:hidden">
                         <td>Visitor</td>
                       </tr>
-                      <tr class="w-full xl:hidden block">
-                        <td class="w-full">{{card.visitors}}</td>
-                        <td>{{card.aria}}</td>
+                      <tr class="block w-full xl:hidden">
+                        <td class="w-full">{{ card.visitors }}</td>
+                        <td>{{ card.aria }}</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
-                <div :class="[card.graphStatus && card.contentStatus ? 'block': 'hidden', 'space-y-2']">
+                <div
+                  :class="[
+                    card.graphStatus && card.contentStatus ? 'block' : 'hidden',
+                    'space-y-2',
+                  ]"
+                >
                   <p
-                    class=" max-w-max uppercase text-xs font-medium border-b-2 border-dotted border-gray-300 " >
-                    {{card.overTime}} over time
+                    class="max-w-max border-b-2 border-dotted border-gray-300 text-xs font-medium uppercase"
+                  >
+                    {{ card.overTime }} over time
                   </p>
-                  <div class="bg-gray-100 rounded h-52 text-gray-600 text-sm">
+                  <div class="h-52 rounded bg-gray-100 text-sm text-gray-600">
                     graph*
                   </div>
-                  <div class="text-right space-x-2">
-                    <span class="text-xs text-light-text align-middle">
-                      <span :class="[graphStart = 'First-time' ? 'bg-teal-500':'bg-gray-400', 'inline-block h-3 w-3 rounded-sm  mr-1']"></span>
-                      {{card.graphStart}}
+                  <div class="space-x-2 text-right">
+                    <span class="align-middle text-xs text-light-text">
+                      <span
+                        :class="[
+                          (graphStart = 'First-time'
+                            ? 'bg-teal-500'
+                            : 'bg-gray-400'),
+                          'mr-1 inline-block h-3 w-3  rounded-sm',
+                        ]"
+                      ></span>
+                      {{ card.graphStart }}
                     </span>
-                    <span class="text-xs text-light-text align-middle">
-                      <span :class="[graphStart = 'Returning' ? 'bg-teal-900':'bg-teal-500', 'inline-block h-3 w-3 rounded-sm  mr-1']"></span>
-                      {{card.graphEnd}}
+                    <span class="align-middle text-xs text-light-text">
+                      <span
+                        :class="[
+                          (graphStart = 'Returning'
+                            ? 'bg-teal-900'
+                            : 'bg-teal-500'),
+                          'mr-1 inline-block h-3 w-3  rounded-sm',
+                        ]"
+                      ></span>
+                      {{ card.graphEnd }}
                     </span>
                   </div>
                 </div>
-                <div :class="[card.conversionStatus && card.contentStatus ? 'block': 'hidden']">
-                  <p class="max-w-max uppercase text-dark-text text-xs font-medium">
+                <div
+                  :class="[
+                    card.conversionStatus && card.contentStatus
+                      ? 'block'
+                      : 'hidden',
+                  ]"
+                >
+                  <p
+                    class="max-w-max text-xs font-medium uppercase text-dark-text"
+                  >
                     conversion funnel
                   </p>
-                  <table v-for="conversion in card.conversions" :key="conversion.name" class="w-full text-sm text-dark-text">
+                  <table
+                    v-for="conversion in card.conversions"
+                    :key="conversion.name"
+                    class="w-full text-sm text-dark-text"
+                  >
                     <tbody class="w-full">
-                      <tr class="w-full hidden md:table-row">
+                      <tr class="hidden w-full md:table-row">
                         <td class="pt-2">
-                            <p>{{conversion.name}}</p>
-                            <p class="text-light-text"><span>{{conversion.sessions}} sessions</span></p>
+                          <p>{{ conversion.name }}</p>
+                          <p class="text-light-text">
+                            <span>{{ conversion.sessions }} sessions</span>
+                          </p>
                         </td>
-                        <td class="text-right">{{conversion.percent}}</td>
+                        <td class="text-right">{{ conversion.percent }}</td>
                         <td>
                           <div class="text-right">
-                            <span aria-hidden="true">{{conversion.aria}}</span>
+                            <span aria-hidden="true">{{
+                              conversion.aria
+                            }}</span>
                           </div>
                         </td>
                       </tr>
-                      <tr class="w-full md:hidden table-row">
+                      <tr class="table-row w-full md:hidden">
                         <td>
-                            <p>{{conversion.name}}</p>
-                            <p class="text-light-text"><span>{{conversion.sessions}} sessions</span></p>
+                          <p>{{ conversion.name }}</p>
+                          <p class="text-light-text">
+                            <span>{{ conversion.sessions }} sessions</span>
+                          </p>
                         </td>
                       </tr>
-                      <tr class="md:hidden table-row">
-                        <td>{{conversion.percent}}</td>
-                        <td class="text-right">{{conversion.aria}}</td>
+                      <tr class="table-row md:hidden">
+                        <td>{{ conversion.percent }}</td>
+                        <td class="text-right">{{ conversion.aria }}</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
-                <div :class="[card.contentStatus ? 'hidden': 'block', 'text-sm text-light-text p-4']">
+                <div
+                  :class="[
+                    card.contentStatus ? 'hidden' : 'block',
+                    'p-4 text-sm text-light-text',
+                  ]"
+                >
                   <span>There were no sessions in this date range.</span>
                 </div>
               </div>
@@ -327,7 +509,7 @@ const cardsCol1 = [
       },
     ],
   },
-  
+
   {
     name: "Online store conversion rate",
     href: "/OverTime",
@@ -502,7 +684,7 @@ const cardsCol1 = [
       },
     ],
   },
-]
+];
 
 const cardsCol2 = [
   {
@@ -539,7 +721,7 @@ const cardsCol2 = [
       },
     ],
   },
-  
+
   {
     name: "Average order value",
     href: "/OverTime",
@@ -679,8 +861,7 @@ const cardsCol2 = [
       },
     ],
   },
-
-]
+];
 
 const cardsCol3 = [
   {
@@ -717,7 +898,7 @@ const cardsCol3 = [
       },
     ],
   },
-  
+
   {
     name: "Total orders",
     href: "/OverTime",
@@ -857,9 +1038,7 @@ const cardsCol3 = [
       },
     ],
   },
-
-  
-]
+];
 
 export default {
   name: "AnalyticsDashboard",
@@ -870,8 +1049,8 @@ export default {
     return {
       cardsCol1,
       cardsCol2,
-      cardsCol3
+      cardsCol3,
     };
-  }
+  },
 };
 </script>
