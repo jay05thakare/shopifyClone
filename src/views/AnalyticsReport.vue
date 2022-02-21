@@ -167,7 +167,7 @@
                     </div>
                     <div>
                       <div class="flex justify-center pt-4">
-                        <button 
+                        <button
                           @click="card.showAll = !card.showAll"
                           class="flex items-center p-1 hover:text-blue-800 hover:underline"
                         >
@@ -211,7 +211,7 @@ export default {
     SearchIcon,
     ChevronDownIcon,
   },
-  setup() {
+  data() {
     const cardsCol1 = [
       {
         name: "Sales",
@@ -392,7 +392,7 @@ export default {
           "Increase visitor engagement by knowing where your visitors are coming from and measuring the success of your campaigns.",
         title: "SESSIONS LAST 30 DAYS",
         value: "0",
-        showAll: true,
+        showAll: false,
         showItemsBefore: [
           {
             name: "Sessions over time",
