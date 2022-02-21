@@ -220,7 +220,7 @@ export default {
           "Make business decisions by comparing sales across products, staff, channels, and more.",
         title: "Total sales last 30 days",
         value: "₹0.00",
-        showAll: true,
+        showAll: false,
         showItemsBefore: [
           {
             name: "Sales over time",
