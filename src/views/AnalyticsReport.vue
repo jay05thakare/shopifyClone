@@ -92,7 +92,7 @@
                     <div>
                       <div class="flex justify-center pt-4">
                         <button
-                          @click="card.showAll = !showAll"
+                          @click="card.showAll = !card.showAll"
                           class="flex items-center p-1 hover:text-blue-800 hover:underline"
                         >
                           Show all
@@ -168,7 +168,7 @@
                     <div>
                       <div class="flex justify-center pt-4">
                         <button 
-                          @click="card.showAll = !showAll"
+                          @click="card.showAll = !card.showAll"
                           class="flex items-center p-1 hover:text-blue-800 hover:underline"
                         >
                           Show all
@@ -220,7 +220,7 @@ export default {
           "Make business decisions by comparing sales across products, staff, channels, and more.",
         title: "Total sales last 30 days",
         value: "₹0.00",
-        showAll: false,
+        showAll: true,
         showItemsBefore: [
           {
             name: "Sales over time",
