@@ -80,7 +80,7 @@
                         }}</a>
                       </div>
                     </div>
-                    <div v-if="showAll" class="divide-y overflow-hidden">
+                    <div v-if="card.showAll" class="divide-y overflow-hidden">
                       <div v-for="link in card.showItemsAfter" :key="link.name">
                         <div class="py-2.5">
                           <a :href="link.link" class="hover:text-blue-800">{{
@@ -92,7 +92,7 @@
                     <div>
                       <div class="flex justify-center pt-4">
                         <button
-                          @click="showAll = !showAll"
+                          @click="card.showAll = !showAll"
                           class="flex items-center p-1 hover:text-blue-800 hover:underline"
                         >
                           Show all
@@ -156,7 +156,7 @@
                         }}</a>
                       </div>
                     </div>
-                    <div v-if="showAll" class="divide-y overflow-hidden">
+                    <div v-if="card.showAll" class="divide-y overflow-hidden">
                       <div v-for="link in card.showItemsAfter" :key="link.name">
                         <div class="py-2.5">
                           <a :href="link.link" class="hover:text-blue-800">{{
@@ -167,8 +167,8 @@
                     </div>
                     <div>
                       <div class="flex justify-center pt-4">
-                        <button
-                          @click="showAll = !showAll"
+                        <button 
+                          @click="card.showAll = !showAll"
                           class="flex items-center p-1 hover:text-blue-800 hover:underline"
                         >
                           Show all
@@ -199,306 +199,10 @@
 </template>
 
 <script>
-import { ref } from "vue";
+// import { ref } from "vue";
 import { SearchIcon, ChevronDownIcon } from "@heroicons/vue/outline";
 import CreateReportButton from "../components/CreateReportButton.vue";
 
-const cardsCol1 = [
-  {
-    name: "Sales",
-    contentStatus: true,
-    description:
-      "Make business decisions by comparing sales across products, staff, channels, and more.",
-    title: "Total sales last 30 days",
-    value: "₹0.00",
-    showItemsBefore: [
-      {
-        name: "Sales over time",
-        href: "#",
-      },
-      {
-        name: "Sales by product",
-        href: "#",
-      },
-    ],
-    showItemsAfter: [
-      {
-        name: "Sales by product variant SKU",
-        href: "#",
-      },
-      {
-        name: "Sales by product vendor",
-        href: "#",
-      },
-      {
-        name: "Sales by discount",
-        href: "#",
-      },
-      {
-        name: "Sales by traffic referrer",
-        href: "#",
-      },
-      {
-        name: "Sales by billing location",
-        href: "#",
-      },
-      {
-        name: "Sales by channel",
-        href: "#",
-      },
-      {
-        name: "Sales by customer name",
-        href: "#",
-      },
-      {
-        name: "Average order value over time",
-        href: "#",
-      },
-    ],
-  },
-  {
-    name: "Orders",
-    contentStatus: true,
-    description:
-      "Get a sense of your store's order volume and flow, as well as overall fulfillment performance, with orders reports.",
-    title: "ORDERS LAST 30 DAYS",
-    value: "20",
-    showItemsBefore: [
-      {
-        name: "Orders over time",
-        href: "#",
-      },
-      {
-        name: "Product orders and returns",
-        href: "#",
-      },
-    ],
-    showItemsAfter: [
-      {
-        name: "Fulfillment over time",
-        href: "#",
-      },
-      {
-        name: "Fulfillment, shipping, and delivery times",
-        href: "#",
-      },
-    ],
-  },
-  {
-    name: "Customers",
-    contentStatus: true,
-    description:
-      "Gain insights into who your customers are and how they interact with your business.",
-    title: "CUSTOMERS LAST 30 DAYS",
-    value: "9",
-    showItemsBefore: [
-      {
-        name: "Orders over time",
-        href: "#",
-      },
-      {
-        name: "Product orders and returns",
-        href: "#",
-      },
-    ],
-    showItemsAfter: [
-      {
-        name: "Fulfillment over time",
-        href: "#",
-      },
-      {
-        name: "Fulfillment, shipping, and delivery times",
-        href: "#",
-      },
-    ],
-  },
-  {
-    name: "Orders",
-    contentStatus: true,
-    description:
-      "Get a sense of your store's order volume and flow, as well as overall fulfillment performance, with orders reports.",
-    title: "ORDERS LAST 30 DAYS",
-    value: "20",
-    showItemsBefore: [
-      {
-        name: "Orders over time",
-        href: "#",
-      },
-      {
-        name: "Product orders and returns",
-        href: "#",
-      },
-    ],
-    showItemsAfter: [
-      {
-        name: "Fulfillment over time",
-        href: "#",
-      },
-      {
-        name: "Fulfillment, shipping, and delivery times",
-        href: "#",
-      },
-    ],
-  },
-  {
-    name: "Customers",
-    contentStatus: true,
-    description:
-      "Gain insights into who your customers are and how they interact with your business.",
-    title: "CUSTOMERS LAST 30 DAYS",
-    value: "9",
-    showItemsBefore: [
-      {
-        name: "Orders over time",
-        href: "#",
-      },
-      {
-        name: "Product orders and returns",
-        href: "#",
-      },
-    ],
-    showItemsAfter: [
-      {
-        name: "Fulfillment over time",
-        href: "#",
-      },
-      {
-        name: "Fulfillment, shipping, and delivery times",
-        href: "#",
-      },
-    ],
-  },
-];
-
-const cardsCol2 = [
-  {
-    name: "Acquisition",
-    contentStatus: true,
-    description:
-      "Increase visitor engagement by knowing where your visitors are coming from and measuring the success of your campaigns.",
-    title: "SESSIONS LAST 30 DAYS",
-    value: "0",
-    showItemsBefore: [
-      {
-        name: "Sessions over time",
-        href: "#",
-      },
-      {
-        name: "Sessions by referrer",
-        href: "#",
-      },
-    ],
-    showItemsAfter: [
-      {
-        name: "Sessions by location",
-        href: "#",
-      },
-    ],
-  },
-  {
-    name: "Profit margin",
-    contentStatus: true,
-    description:
-      "See how products and locations contribute to the gross profit and margin for your business.",
-    title: "PROFIT THIS MONTH TO DATE",
-    value: "₹0.00",
-    showItemsBefore: [
-      {
-        name: "Profit by product",
-        href: "#",
-      },
-      {
-        name: "Profit by product variant SKU",
-        href: "#",
-      },
-    ],
-    showItemsAfter: [],
-  },
-  {
-    name: "Customers",
-    contentStatus: true,
-    description:
-      "Gain insights into who your customers are and how they interact with your business.",
-    title: "CUSTOMERS LAST 30 DAYS",
-    value: "9",
-    showItemsBefore: [
-      {
-        name: "Orders over time",
-        href: "#",
-      },
-      {
-        name: "Product orders and returns",
-        href: "#",
-      },
-    ],
-    showItemsAfter: [
-      {
-        name: "Fulfillment over time",
-        href: "#",
-      },
-      {
-        name: "Fulfillment, shipping, and delivery times",
-        href: "#",
-      },
-    ],
-  },
-  {
-    name: "Orders",
-    contentStatus: true,
-    description:
-      "Get a sense of your store's order volume and flow, as well as overall fulfillment performance, with orders reports.",
-    title: "ORDERS LAST 30 DAYS",
-    value: "20",
-    showItemsBefore: [
-      {
-        name: "Orders over time",
-        href: "#",
-      },
-      {
-        name: "Product orders and returns",
-        href: "#",
-      },
-    ],
-    showItemsAfter: [
-      {
-        name: "Fulfillment over time",
-        href: "#",
-      },
-      {
-        name: "Fulfillment, shipping, and delivery times",
-        href: "#",
-      },
-    ],
-  },
-  {
-    name: "Customers",
-    contentStatus: true,
-    description:
-      "Gain insights into who your customers are and how they interact with your business.",
-    title: "CUSTOMERS LAST 30 DAYS",
-    value: "9",
-    showItemsBefore: [
-      {
-        name: "Orders over time",
-        href: "#",
-      },
-      {
-        name: "Product orders and returns",
-        href: "#",
-      },
-    ],
-    showItemsAfter: [
-      {
-        name: "Fulfillment over time",
-        href: "#",
-      },
-      {
-        name: "Fulfillment, shipping, and delivery times",
-        href: "#",
-      },
-    ],
-  },
-];
 
 export default {
   name: "AnalyticsReport",
@@ -508,11 +212,316 @@ export default {
     ChevronDownIcon,
   },
   setup() {
-    const showAll = ref(false);
+    const cardsCol1 = [
+      {
+        name: "Sales",
+        contentStatus: true,
+        description:
+          "Make business decisions by comparing sales across products, staff, channels, and more.",
+        title: "Total sales last 30 days",
+        value: "₹0.00",
+        showAll: false,
+        showItemsBefore: [
+          {
+            name: "Sales over time",
+            href: "#",
+          },
+          {
+            name: "Sales by product",
+            href: "#",
+          },
+        ],
+        showItemsAfter: [
+          {
+            name: "Sales by product variant SKU",
+            href: "#",
+          },
+          {
+            name: "Sales by product vendor",
+            href: "#",
+          },
+          {
+            name: "Sales by discount",
+            href: "#",
+          },
+          {
+            name: "Sales by traffic referrer",
+            href: "#",
+          },
+          {
+            name: "Sales by billing location",
+            href: "#",
+          },
+          {
+            name: "Sales by channel",
+            href: "#",
+          },
+          {
+            name: "Sales by customer name",
+            href: "#",
+          },
+          {
+            name: "Average order value over time",
+            href: "#",
+          },
+        ],
+      },
+      {
+        name: "Orders",
+        contentStatus: true,
+        description:
+          "Get a sense of your store's order volume and flow, as well as overall fulfillment performance, with orders reports.",
+        title: "ORDERS LAST 30 DAYS",
+        value: "20",
+        showAll: false,
+        showItemsBefore: [
+          {
+            name: "Orders over time",
+            href: "#",
+          },
+          {
+            name: "Product orders and returns",
+            href: "#",
+          },
+        ],
+        showItemsAfter: [
+          {
+            name: "Fulfillment over time",
+            href: "#",
+          },
+          {
+            name: "Fulfillment, shipping, and delivery times",
+            href: "#",
+          },
+        ],
+      },
+      {
+        name: "Customers",
+        contentStatus: true,
+        description:
+          "Gain insights into who your customers are and how they interact with your business.",
+        title: "CUSTOMERS LAST 30 DAYS",
+        value: "9",
+        showAll: false,
+        showItemsBefore: [
+          {
+            name: "Orders over time",
+            href: "#",
+          },
+          {
+            name: "Product orders and returns",
+            href: "#",
+          },
+        ],
+        showItemsAfter: [
+          {
+            name: "Fulfillment over time",
+            href: "#",
+          },
+          {
+            name: "Fulfillment, shipping, and delivery times",
+            href: "#",
+          },
+        ],
+      },
+      {
+        name: "Orders",
+        contentStatus: true,
+        description:
+          "Get a sense of your store's order volume and flow, as well as overall fulfillment performance, with orders reports.",
+        title: "ORDERS LAST 30 DAYS",
+        value: "20",
+        showAll: false,
+        showItemsBefore: [
+          {
+            name: "Orders over time",
+            href: "#",
+          },
+          {
+            name: "Product orders and returns",
+            href: "#",
+          },
+        ],
+        showItemsAfter: [
+          {
+            name: "Fulfillment over time",
+            href: "#",
+          },
+          {
+            name: "Fulfillment, shipping, and delivery times",
+            href: "#",
+          },
+        ],
+      },
+      {
+        name: "Customers",
+        contentStatus: true,
+        description:
+          "Gain insights into who your customers are and how they interact with your business.",
+        title: "CUSTOMERS LAST 30 DAYS",
+        value: "9",
+        showAll: false,
+        showItemsBefore: [
+          {
+            name: "Orders over time",
+            href: "#",
+          },
+          {
+            name: "Product orders and returns",
+            href: "#",
+          },
+        ],
+        showItemsAfter: [
+          {
+            name: "Fulfillment over time",
+            href: "#",
+          },
+          {
+            name: "Fulfillment, shipping, and delivery times",
+            href: "#",
+          },
+        ],
+      },
+    ];
+
+    const cardsCol2 = [
+      {
+        name: "Acquisition",
+        contentStatus: true,
+        description:
+          "Increase visitor engagement by knowing where your visitors are coming from and measuring the success of your campaigns.",
+        title: "SESSIONS LAST 30 DAYS",
+        value: "0",
+        showAll: true,
+        showItemsBefore: [
+          {
+            name: "Sessions over time",
+            href: "#",
+          },
+          {
+            name: "Sessions by referrer",
+            href: "#",
+          },
+        ],
+        showItemsAfter: [
+          {
+            name: "Sessions by location",
+            href: "#",
+          },
+        ],
+      },
+      {
+        name: "Profit margin",
+        contentStatus: true,
+        description:
+          "See how products and locations contribute to the gross profit and margin for your business.",
+        title: "PROFIT THIS MONTH TO DATE",
+        value: "₹0.00",
+        showAll: false,
+        showItemsBefore: [
+          {
+            name: "Profit by product",
+            href: "#",
+          },
+          {
+            name: "Profit by product variant SKU",
+            href: "#",
+          },
+        ],
+        showItemsAfter: [],
+      },
+      {
+        name: "Customers",
+        contentStatus: true,
+        description:
+          "Gain insights into who your customers are and how they interact with your business.",
+        title: "CUSTOMERS LAST 30 DAYS",
+        value: "9",
+        showAll: false,
+        showItemsBefore: [
+          {
+            name: "Orders over time",
+            href: "#",
+          },
+          {
+            name: "Product orders and returns",
+            href: "#",
+          },
+        ],
+        showItemsAfter: [
+          {
+            name: "Fulfillment over time",
+            href: "#",
+          },
+          {
+            name: "Fulfillment, shipping, and delivery times",
+            href: "#",
+          },
+        ],
+      },
+      {
+        name: "Orders",
+        contentStatus: true,
+        description:
+          "Get a sense of your store's order volume and flow, as well as overall fulfillment performance, with orders reports.",
+        title: "ORDERS LAST 30 DAYS",
+        value: "20",
+        showAll: false,
+        showItemsBefore: [
+          {
+            name: "Orders over time",
+            href: "#",
+          },
+          {
+            name: "Product orders and returns",
+            href: "#",
+          },
+        ],
+        showItemsAfter: [
+          {
+            name: "Fulfillment over time",
+            href: "#",
+          },
+          {
+            name: "Fulfillment, shipping, and delivery times",
+            href: "#",
+          },
+        ],
+      },
+      {
+        name: "Customers",
+        contentStatus: true,
+        description:
+          "Gain insights into who your customers are and how they interact with your business.",
+        title: "CUSTOMERS LAST 30 DAYS",
+        value: "9",
+        showAll: false,
+        showItemsBefore: [
+          {
+            name: "Orders over time",
+            href: "#",
+          },
+          {
+            name: "Product orders and returns",
+            href: "#",
+          },
+        ],
+        showItemsAfter: [
+          {
+            name: "Fulfillment over time",
+            href: "#",
+          },
+          {
+            name: "Fulfillment, shipping, and delivery times",
+            href: "#",
+          },
+        ],
+      },
+    ];
+    
     return {
       cardsCol1,
       cardsCol2,
-      showAll,
     };
   },
 };

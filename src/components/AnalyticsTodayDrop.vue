@@ -1,7 +1,7 @@
 
 <template>
 <div class="space-y-4 bg-white max-w-xl">
-  <div class="p-4 space-y-4 flex flex-col">
+  <div class="p-4 flex flex-col">
     <div>
       <label for="range" class="block text-sm text-dark-text bg-white">Date range</label>
       <select id="range" name="range" class="mt-1 block w-full pl-3 pr-10 py-2 border-gray-300 text-sm rounded-md">
@@ -14,7 +14,7 @@
         <option>Last year</option>
       </select>
     </div>
-    <div>
+    <div class="mt-4">
       <div class="flex space-x-4 text-sm text-dark-text">
         <div class="w-1/2 flex-1 min-w-0">
           <label for="starting" class="">Starting</label>
@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <div class="w-full">
+    <div class="w-full mt-4">
       <Calendar />
     </div>
     <div class=" space-y-4">
