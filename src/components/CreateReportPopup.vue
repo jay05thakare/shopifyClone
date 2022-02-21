@@ -7,13 +7,20 @@
       class="flex items-center justify-between border-b border-gray-300 px-5 py-4"
     >
       <h2 class="text-xl">Create custom report</h2>
-      <button class="w-5">
-        <img
-          class="text-black"
-          src="@/assets/images/close.svg"
-          alt=""
-          @click="showModal = false"
-        />
+      <button class="w-6 rounded hover:bg-gray-200">
+        <svg
+          @click="$emit('close')"
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 text-light-text hover:text-black"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+            clip-rule="evenodd"
+          />
+        </svg>
       </button>
     </div>
 
@@ -132,7 +139,7 @@
     >
       <button
         class="rounded border border-gray-300 py-2 px-4 font-medium"
-        @click="showModal = false"
+        @click="$emit('close')"
       >
         Cancel
       </button>

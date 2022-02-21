@@ -386,7 +386,6 @@ const navigation = [
     icon: UsersIcon,
     current: false,
     children: [
-      { name: "All orders", link: "/allOrders" },
       { name: "Drafts", link: "/drafts" },
       { name: "Abandoned checkouts", link: "/abandonedCheckouts" },
     ],
@@ -396,13 +395,12 @@ const navigation = [
     link: "/products",
     icon: FolderIcon,
     current: false,
-    children: [
-      { name: "All products", link: "/products" },
-      // {name:'Inventory', link:'#'},
-      // {name:'Transfers', link:'#'},
-      // {name:'Collections', link:'#'},
-      // {name:'Gift cards', link:'#'},
-    ],
+    // children: [
+    //   {name:'Inventory', link:'#'},
+    //   {name:'Transfers', link:'#'},
+    //   {name:'Collections', link:'#'},
+    //   {name:'Gift cards', link:'#'},
+    // ],
   },
   // {
   //   name: 'Customer',
@@ -426,7 +424,6 @@ const navigation = [
     icon: ChartBarIcon,
     current: false,
     children: [
-      { name: "Overview", link: "/marketing" },
       { name: "Campaigns", link: "/marketingCampaign" },
       // {name:'Automations', link:'#'},
     ],

@@ -14,6 +14,7 @@ import OverTime from "./views/OverTime.vue";
 import World from "./views/World.vue";
 // import Newside from '.components/Newside.vue'
 import sample from "./components/Sample.vue";
+import Calendar from "./components/Calendar.vue";
 
 const routes = [
   {
@@ -80,6 +81,11 @@ const routes = [
     name: "sample",
     component: sample,
     path: "/sample",
+  },
+  {
+    name: "Calendar",
+    component: Calendar,
+    path: "/Calendar",
   },
 ];
 

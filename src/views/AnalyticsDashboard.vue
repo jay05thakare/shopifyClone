@@ -5,13 +5,24 @@
         <div class="flex flex-col space-y-6 px-4 sm:px-6 md:px-8">
           <h1 class="text-lg font-semibold text-dark-text">Analytics</h1>
           <div class="flex items-center space-x-2">
-            <button
-              type="button"
-              class="inline-flex max-w-max items-center rounded border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-dark-text shadow-sm hover:bg-gray-50"
-            >
+            <!-- Today drop -->
+            <Popover class="relative" v-slot="{ open }">
+              <PopoverButton :class="[open ? '' : '', 'group    hover:bg-gray-100  inline-flex max-w-max items-center rounded border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-dark-text shadow-sm ']">
               <span><CalendarIcon class="mr-1 h-5 w-5 text-gray-600" /></span>
-              Today
-            </button>
+                <span>Today</span>
+              </PopoverButton>
+
+              <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
+                <PopoverPanel class="absolute z-10 left-0 mt-1 px-2 w-screen max-w-xl sm:px-0">
+                  <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+
+                    <AnalyticsTodayDrop />
+
+                  </div>
+                </PopoverPanel>
+              </transition>
+            </Popover>
+            <!-- Today drop end -->
             <span class="text-sm text-light-text"
               >compared to <span>Feb 11, 2022</span></span
             >
@@ -473,6 +484,9 @@
 
 <script>
 import { CalendarIcon } from "@heroicons/vue/outline";
+import AnalyticsTodayDrop from '@/components/AnalyticsTodayDrop.vue';
+import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
+import { BookmarkAltIcon, ShieldCheckIcon, SupportIcon } from '@heroicons/vue/outline'
 
 const cardsCol1 = [
   {
@@ -1043,6 +1057,10 @@ const cardsCol3 = [
 export default {
   name: "AnalyticsDashboard",
   components: {
+    AnalyticsTodayDrop,
+    Popover,
+    PopoverButton,
+    PopoverPanel,
     CalendarIcon,
   },
   setup() {
@@ -1050,7 +1068,40 @@ export default {
       cardsCol1,
       cardsCol2,
       cardsCol3,
+      resources,
+      recentPosts,
     };
   },
 };
+
+
+
+
+const resources = [
+  {
+    name: 'Help Center',
+    description: 'Get all of your questions answered in our forums or contact support.',
+    href: '#',
+    icon: SupportIcon,
+  },
+  {
+    name: 'Guides',
+    description: 'Learn how to maximize our platform to get the most out of it.',
+    href: '#',
+    icon: BookmarkAltIcon,
+  },
+  {
+    name: 'Events',
+    description: 'See what meet-ups and other events we might be planning near you.',
+    href: '#',
+    icon: CalendarIcon,
+  },
+  { name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#', icon: ShieldCheckIcon },
+]
+const recentPosts = [
+  { id: 1, name: 'Boost your conversion rate', href: '#' },
+  { id: 2, name: 'How to use search engine optimization to drive traffic to your site', href: '#' },
+  { id: 3, name: 'Improve your customer experience', href: '#' },
+]
+
 </script>

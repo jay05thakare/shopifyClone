@@ -11,7 +11,6 @@
       <div
         class="fixed inset-0 z-30 bg-black bg-opacity-30"
         v-if="showModal"
-        @click="showModal = false"
       ></div>
     </transition>
     <transition name="slide" appear>
