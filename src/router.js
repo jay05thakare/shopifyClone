@@ -10,6 +10,7 @@ import MarketingCampaign from "./views/MarketingCampaign.vue";
 import AnalyticsDashboard from "./views/AnalyticsDashboard.vue";
 import AnalyticsReport from "./views/AnalyticsReport.vue";
 import OverTime from "./views/OverTime.vue";
+import Apps from "./views/Apps.vue";
 
 import World from "./views/World.vue";
 // import Newside from '.components/Newside.vue'
@@ -71,6 +72,11 @@ const routes = [
     name: "World",
     component: World,
     path: "/world",
+  },
+  {
+    name: "Apps",
+    component: Apps,
+    path: "/Apps",
   },
   // {
   //     name: 'Newside',

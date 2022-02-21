@@ -7,17 +7,31 @@
           <div class="flex items-center space-x-2">
             <!-- Today drop -->
             <Popover class="relative" v-slot="{ open }">
-              <PopoverButton :class="[open ? '' : '', 'group    hover:bg-gray-100  inline-flex max-w-max items-center rounded border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-dark-text shadow-sm ']">
-              <span><CalendarIcon class="mr-1 h-5 w-5 text-gray-600" /></span>
+              <PopoverButton
+                :class="[
+                  open ? '' : '',
+                  'group    inline-flex  max-w-max items-center rounded border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-dark-text shadow-sm hover:bg-gray-100 ',
+                ]"
+              >
+                <span><CalendarIcon class="mr-1 h-5 w-5 text-gray-600" /></span>
                 <span>Today</span>
               </PopoverButton>
 
-              <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
-                <PopoverPanel class="absolute z-10 left-0 mt-1 px-2 w-screen max-w-xl sm:px-0">
-                  <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-
+              <transition
+                enter-active-class="transition ease-out duration-200"
+                enter-from-class="opacity-0 translate-y-1"
+                enter-to-class="opacity-100 translate-y-0"
+                leave-active-class="transition ease-in duration-150"
+                leave-from-class="opacity-100 translate-y-0"
+                leave-to-class="opacity-0 translate-y-1"
+              >
+                <PopoverPanel
+                  class="absolute left-0 z-10 mt-1 w-screen max-w-xl px-2 sm:px-0"
+                >
+                  <div
+                    class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5"
+                  >
                     <AnalyticsTodayDrop />
-
                   </div>
                 </PopoverPanel>
               </transition>
@@ -484,9 +498,13 @@
 
 <script>
 import { CalendarIcon } from "@heroicons/vue/outline";
-import AnalyticsTodayDrop from '@/components/AnalyticsTodayDrop.vue';
-import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
-import { BookmarkAltIcon, ShieldCheckIcon, SupportIcon } from '@heroicons/vue/outline'
+import AnalyticsTodayDrop from "@/components/AnalyticsTodayDrop.vue";
+import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
+import {
+  BookmarkAltIcon,
+  ShieldCheckIcon,
+  SupportIcon,
+} from "@heroicons/vue/outline";
 
 const cardsCol1 = [
   {
@@ -1074,34 +1092,42 @@ export default {
   },
 };
 
-
-
-
 const resources = [
   {
-    name: 'Help Center',
-    description: 'Get all of your questions answered in our forums or contact support.',
-    href: '#',
+    name: "Help Center",
+    description:
+      "Get all of your questions answered in our forums or contact support.",
+    href: "#",
     icon: SupportIcon,
   },
   {
-    name: 'Guides',
-    description: 'Learn how to maximize our platform to get the most out of it.',
-    href: '#',
+    name: "Guides",
+    description:
+      "Learn how to maximize our platform to get the most out of it.",
+    href: "#",
     icon: BookmarkAltIcon,
   },
   {
-    name: 'Events',
-    description: 'See what meet-ups and other events we might be planning near you.',
-    href: '#',
+    name: "Events",
+    description:
+      "See what meet-ups and other events we might be planning near you.",
+    href: "#",
     icon: CalendarIcon,
   },
-  { name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#', icon: ShieldCheckIcon },
-]
+  {
+    name: "Security",
+    description: "Understand how we take your privacy seriously.",
+    href: "#",
+    icon: ShieldCheckIcon,
+  },
+];
 const recentPosts = [
-  { id: 1, name: 'Boost your conversion rate', href: '#' },
-  { id: 2, name: 'How to use search engine optimization to drive traffic to your site', href: '#' },
-  { id: 3, name: 'Improve your customer experience', href: '#' },
-]
-
+  { id: 1, name: "Boost your conversion rate", href: "#" },
+  {
+    id: 2,
+    name: "How to use search engine optimization to drive traffic to your site",
+    href: "#",
+  },
+  { id: 3, name: "Improve your customer experience", href: "#" },
+];
 </script>

@@ -203,7 +203,6 @@
 import { SearchIcon, ChevronDownIcon } from "@heroicons/vue/outline";
 import CreateReportButton from "../components/CreateReportButton.vue";
 
-
 export default {
   name: "AnalyticsReport",
   components: {
@@ -518,7 +517,7 @@ export default {
         ],
       },
     ];
-    
+
     return {
       cardsCol1,
       cardsCol2,

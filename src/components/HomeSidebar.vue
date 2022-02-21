@@ -376,6 +376,7 @@ import {
   XIcon,
   CogIcon,
   ArchiveIcon,
+  ChipIcon,
 } from "@heroicons/vue/solid";
 
 const navigation = [
@@ -434,12 +435,12 @@ const navigation = [
   //   icon: ChartBarIcon,
   //   current: false,
   //   },
-  // {
-  //   name: 'Apps',
-  //   link: '#',
-  //   icon: ChartBarIcon,
-  //   current: false,
-  //   },
+  {
+    name: "Apps",
+    link: "/Apps",
+    icon: ChipIcon,
+    current: false,
+  },
 ];
 
 const navigation2 = [
