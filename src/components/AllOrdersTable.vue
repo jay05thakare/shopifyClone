@@ -31,7 +31,7 @@
           </tr>
         </thead>
         <tbody class="divide-y">
-          <tr v-for="order in orders" :key="order.id">
+          <tr v-for="order in tableSortData" :key="order.id">
             <td class="sticky left-0 z-10 w-24 whitespace-nowrap bg-white">
               <div class="flex items-center">
                 <div class="pl-4">
@@ -169,6 +169,8 @@
 </template>
 
 <script>
+import { computed, ref } from "vue";
+
 const orders = [
   {
     id: "#100",
@@ -343,7 +345,21 @@ const orders = [
 
 export default {
   setup() {
+    const filter = ref("");
+    const setFilter = (value) => (filter.value = value);
+    const tableSortData = computed(() => {
+      if (!filter.value) {
+        return orders;
+      }
+      return orders.filter(
+        (order) => order.fulfillment.toLowerCase() == filter.value.toLowerCase()
+      );
+    });
+
     return {
+      setFilter,
+      filter,
+      tableSortData,
       orders,
     };
   },
